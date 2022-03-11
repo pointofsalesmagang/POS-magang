@@ -73,15 +73,17 @@ class KategoriController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Kategori $kategori)
+    public function update(Request $request, $kategori)
     {
+        // dd($request,$kategori);
         $request->validate([
             'nama_kategori' => 'required',
             'deskripsi' => 'required',
         ]);
-        $kategori::find($kategori)->update($request->all());
+        kategori::find($kategori)->update($request->all());
 
-        return redirect(route('home'));    }
+        return redirect()->route('kategori.index');
+    }
 
     /**
      * Remove the specified resource from storage.

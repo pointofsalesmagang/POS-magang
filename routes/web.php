@@ -20,5 +20,6 @@ Route::get('/', function () {
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('kategori',App\Http\Controllers\KategoriController::class);
+Route::resource('produk',App\Http\Controllers\ProdukControllers::class);
 
 Auth::routes();

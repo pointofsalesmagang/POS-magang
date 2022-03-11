@@ -18,10 +18,10 @@
             <td>{{$item->nama_kategori}}</td>
             <td>{{$item->deskripsi}}</td>  
             <td>
-                <a class="btn btn-warning btn-fw text-white" href="{{route('kategori.edit',$item->id)}}"><i class="bi bi-pencil-square"></i></a>
                 <form action="{{route('kategori.destroy',$item->id)}}" method="POST">
                     @csrf
                     @method('DELETE')
+                    <a class="btn btn-warning btn-fw text-white" href="{{route('kategori.edit',$item->id)}}"><i class="bi bi-pencil-square"></i></a>
                     <button type="submit" class="btn btn-danger btn-fw text-white" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="bi bi-trash3-fill"></i></button>
                 </form>
             </td>  
