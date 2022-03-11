@@ -22,9 +22,9 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">
+      <a class="nav-link" href="{{route('member.index')}}">
         <i class="fa-solid fa-id-card me-2"></i>
-        <span class="menu-title" style="font-size: 17px">Members</span>
+        <span class="menu-title" style="font-size: 17px">Member</span>
       </a>
     </li>
     <li class="nav-item">

@@ -4,10 +4,7 @@
     <div class="row mt-5 mb-5">
         <div class="col-lg-12 margin-tb">
             <div class="float-left">
-                <h2></h2>
-            </div>
-            <div class="float-right">
-                <a href="{{ route('produk.index')}}"  type="button" class="btn btn-secondary text-white mt-3">Kembali</a>
+                <h2>Show Produk</h2>
             </div>
         </div>
     </div>
@@ -61,6 +58,9 @@
                 <strong>Stok : </strong>
                 {{ $produk->stok}}
             </div>
+        </div>
+        <div class="float-right">
+            <a href="{{ route('produk.index')}}"  type="button" class="btn btn-secondary text-white mt-3">Kembali</a>
         </div>
     </div>
 @endsection

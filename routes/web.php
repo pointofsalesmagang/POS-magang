@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\MemberController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,10 +17,12 @@ use App\Http\Controllers\KategoriController;
 
 Route::get('/', function () {
     return view('auth.login');
+    
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('kategori',App\Http\Controllers\KategoriController::class);
 Route::resource('produk',App\Http\Controllers\ProdukControllers::class);
+Route::resource('member',App\Http\Controllers\MemberController::class);
 
 Auth::routes();
