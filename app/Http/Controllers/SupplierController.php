@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Member;
+use App\Models\Supplier;
 
-class MemberController extends Controller
+class SupplierController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class MemberController extends Controller
      */
     public function index()
     {
-        $member = member::all();
-        return view ('member.index',compact('member'));
+        $supplier = Supplier::all();
+        return view ('supplier.index',compact('supplier'));
     }
 
     /**
@@ -25,7 +25,7 @@ class MemberController extends Controller
      */
     public function create()
     {
-        return view('member.create');
+        return view ('supplier.create');
     }
 
     /**
@@ -37,14 +37,13 @@ class MemberController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'kode' => 'required',
-            'nama_member' => 'required',
+            'nama' => 'required',
+            'telepon' => 'required',
             'alamat' => 'required',
-            'notelp' => 'required',
-         ]);
-         Member::create($request->all());
- 
-         return redirect()->route('member.index')->with('succes','Data berhasil di Input');
+        ]);
+        supplier::create($request->all());
+
+        return redirect()->route('supplier.index')->with('succes','Data berhasil di Input');
     }
 
     /**
@@ -55,8 +54,7 @@ class MemberController extends Controller
      */
     public function show($id)
     {
-        $member = Member::find($id);
-        return view('member.show', compact('member'));
+        //
     }
 
     /**
@@ -65,9 +63,9 @@ class MemberController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Member $member)
+    public function edit(Supplier $supplier)
     {
-        return view('member.edit', compact('member'));
+        return view('supplier.edit', compact('supplier'));
     }
 
     /**
@@ -77,19 +75,18 @@ class MemberController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Member $member)
+    public function update(Request $request, Supplier $supplier)
     {
-        $memberid = $member->id ; 
-    
-        $request->validate([
-            'kode' => 'required',
-            'nama_member' => 'required',
-            'alamat' => 'required',
-            'notelp' => 'required',
-        ]);
-        member::find($memberid)->update($request->all());
+        $supplierid = $supplier->id ; 
 
-        return redirect()->route('member.index');
+        $request->validate([
+            'nama' => 'required',
+            'telepon' => 'required',
+            'alamat' => 'required',
+        ]);
+        supplier::find($supplierid)->update($request->all());
+
+        return redirect()->route('supplier.index');
     }
 
     /**
@@ -98,10 +95,10 @@ class MemberController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Member $member)
+    public function destroy(Supplier $supplier)
     {
-        $member->delete();
+        $supplier->delete();
 
-        return redirect()->route('member.index')->with('succes','Data Berhasil di Hapus');
+        return redirect()->route('supplier.index')->with('succes','Data berhasil di Hapus`');
     }
 }

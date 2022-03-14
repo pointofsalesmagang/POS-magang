@@ -1,8 +1,6 @@
 @extends('layouts.main')
 @section('content')
 
-
-
 <a href="{{route ('member.create')}}" type="button" class="btn btn-success text-white mb-4"><i class="bi bi-plus-circle"></i> Member</a>
 
 <table class="table table-bordered">

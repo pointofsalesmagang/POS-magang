@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\MemberController;
-
+// use App\Http\Controllers\SupplierController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,5 +24,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('kategori',App\Http\Controllers\KategoriController::class);
 Route::resource('produk',App\Http\Controllers\ProdukControllers::class);
 Route::resource('member',App\Http\Controllers\MemberController::class);
+Route::resource('supplier',App\Http\Controllers\SupplierController::class);
 
 Auth::routes();
