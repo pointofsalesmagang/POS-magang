@@ -35,7 +35,7 @@
     </li>
      <li class="nav-item">
       <a class="nav-link" href="{{route('user.index')}}">
-        <i class="fa-solid fa-truck me-2"></i>
+        <i class="fa-solid fa-user me-2"></i>
         <span class="menu-title" style="font-size: 17px">User</span>
       </a>
     </li>
