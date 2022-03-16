@@ -18,7 +18,7 @@
     <ul class="navbar-nav navbar-nav-right">
       <li class="nav-item nav-profile dropdown">
         <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="profileDropdown">
-          <img src="images/faces/face5.jpg" alt="profile"/>
+          <img src="https://i.pinimg.com/736x/b7/5b/29/b75b29441bbd967deda4365441497221.jpg" alt="profile"/>
           <span class="nav-profile-name">{{ Auth::user()->name }}</span>
         </a>
         <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
