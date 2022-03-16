@@ -33,6 +33,12 @@
         <span class="menu-title" style="font-size: 17px">Supplier</span>
       </a>
     </li>
+     <li class="nav-item">
+      <a class="nav-link" href="{{route('user.index')}}">
+        <i class="fa-solid fa-truck me-2"></i>
+        <span class="menu-title" style="font-size: 17px">User</span>
+      </a>
+    </li>
     <li class="nav-item sidebar-category">
       <p>TRANSAKSI</p>
       <span></span>
@@ -78,6 +84,6 @@
       </a>
     </li>
 
-    
-    
+
+
   </ul>

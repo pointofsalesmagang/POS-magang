@@ -77,7 +77,7 @@ class SupplierController extends Controller
      */
     public function update(Request $request, Supplier $supplier)
     {
-        $supplierid = $supplier->id ; 
+        $supplierid = $supplier->id ;
 
         $request->validate([
             'nama' => 'required',

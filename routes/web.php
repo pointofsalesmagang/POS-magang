@@ -17,13 +17,15 @@ use App\Http\Controllers\MemberController;
 
 Route::get('/', function () {
     return view('auth.login');
-    
+
 });
+
+Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('kategori',App\Http\Controllers\KategoriController::class);
 Route::resource('produk',App\Http\Controllers\ProdukControllers::class);
 Route::resource('member',App\Http\Controllers\MemberController::class);
 Route::resource('supplier',App\Http\Controllers\SupplierController::class);
+Route::resource('user',App\Http\Controllers\UserController::class);
 
-Auth::routes();

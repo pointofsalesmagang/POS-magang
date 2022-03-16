@@ -38,7 +38,7 @@
               <h6 class="preview-subject ellipsis font-weight-normal">Tim Cook
               </h6>
               <p class="font-weight-light small-text text-muted mb-0">
-                New product launch 
+                New product launch
               </p>
             </div>
           </a>
@@ -129,8 +129,10 @@
             Settings
           </a>
           <a class="dropdown-item">
-            <i class="mdi mdi-logout text-primary"></i>
-            Logout
+            <i class="mdi mdi-logout text-primary">Log Out</i>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
           </a>
         </div>
       </li>
