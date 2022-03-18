@@ -28,4 +28,4 @@ Route::resource('produk',App\Http\Controllers\ProdukControllers::class);
 Route::resource('member',App\Http\Controllers\MemberController::class);
 Route::resource('supplier',App\Http\Controllers\SupplierController::class);
 Route::resource('user',App\Http\Controllers\UserController::class);
-
+Route::resource('pengeluaran',App\Http\Controllers\PengeluaranControllers::class);

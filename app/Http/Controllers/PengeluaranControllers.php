@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pengeluaran;
 use Illuminate\Http\Request;
-use App\Models\Member;
 
-class MemberController extends Controller
+class PengeluaranControllers extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class MemberController extends Controller
      */
     public function index()
     {
-            $member = member::all();
-            return view ('member.index',compact('member'));
+        $pengeluaran = Pengeluaran::all();
+        return view ('pengeluaran.index',compact('pengeluaran'));
     }
 
     /**
@@ -25,7 +25,7 @@ class MemberController extends Controller
      */
     public function create()
     {
-        return view('member.create');
+        return view('pengeluaran.create');
     }
 
     /**
@@ -37,14 +37,13 @@ class MemberController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'kode' => 'required',
-            'nama_member' => 'required',
-            'alamat' => 'required',
-            'notelp' => 'required',
+            'tanggal' => 'required',
+            'deskripsi' => 'required',
+            'nominal' => 'required',
          ]);
-         Member::create($request->all());
+         Pengeluaran::create($request->all());
  
-         return redirect()->route('member.index')->with('succes','Data berhasil di Input');
+         return redirect()->route('pengeluaran.index')->with('succes','Data berhasil di Input');
     }
 
     /**
@@ -55,8 +54,7 @@ class MemberController extends Controller
      */
     public function show($id)
     {
-        $member = Member::find($id);
-        return view('member.show', compact('member'));
+       //
     }
 
     /**
@@ -65,9 +63,9 @@ class MemberController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Member $member)
+    public function edit( Pengeluaran $pengeluaran)
     {
-        return view('member.edit', compact('member'));
+        return view('pengeluaran.edit', compact('pengeluaran'));
     }
 
     /**
@@ -77,31 +75,30 @@ class MemberController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Member $member)
+    public function update(Request $request, Pengeluaran $pengeluaran)
     {
-        $memberid = $member->id ; 
+        $pengeluaranid = $pengeluaran->id ;
+        // dd($produkid);
     
         $request->validate([
-            'kode' => 'required',
-            'nama_member' => 'required',
-            'alamat' => 'required',
-            'notelp' => 'required',
-        ]);
-        member::find($memberid)->update($request->all());
-
-        return redirect()->route('member.index');
+            'tanggal' => 'required',
+            'deskripsi' => 'required',
+            'nominal' => 'required',
+         ]);
+         Pengeluaran::find($pengeluaran)->first()->update($request->all());
+ 
+         return redirect()->route('pengeluaran.index')->with('succes','Data berhasil di Input');
     }
-
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Member $member)
+    public function destroy(Pengeluaran $pengeluaran)
     {
-        $member->delete();
+        $pengeluaran->delete();
 
-        return redirect()->route('member.index')->with('succes','Data Berhasil di Hapus');
+        return redirect()->route('pengeluaran.index')->with('succes','Data Berhasil di Hapus');
     }
 }

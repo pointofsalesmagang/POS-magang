@@ -44,7 +44,7 @@
       <span></span>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">
+      <a class="nav-link" href="{{route('pengeluaran.index')}}">
         <i class="fa-solid fa-money-bill-1 me-2"></i>
         <span class="menu-title" style="font-size: 17px">Daftar Pengeluaran</span>
       </a>
