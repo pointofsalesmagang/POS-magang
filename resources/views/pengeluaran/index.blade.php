@@ -4,7 +4,7 @@
 
 <a href="{{route ('pengeluaran.create')}}" type="button" class="btn btn-success text-white mb-4"><i class="bi bi-plus-circle"></i> Pengeluaran</a>
 
-<table class="table table-bordered text-center">
+<table id="tabledata" class="table table-bordered text-center">
     <thead>
       <tr>
         <th scope="col">Tanggal</th>

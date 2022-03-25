@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="{{ asset('template/css/style.css')}}">
   
   <link rel="shortcut icon" href="{{ asset('template/images/favicon.png')}}" />
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap4.min.css">
 </head>
 <body>
   <div class="container-scroller d-flex">
@@ -85,6 +86,13 @@
   <!-- Custom js for this page-->
   <script src="{{ asset('template/js/dashboard.js')}}"></script>
   <!-- End custom js for this page-->
+  <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
+  <script>
+    $(document).ready(function() {
+        $('#tabledata').DataTable();
+    } );
+  </script>
 </body>
 
 </html>

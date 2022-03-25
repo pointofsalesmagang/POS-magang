@@ -3,7 +3,7 @@
     
 <a href="{{route ('supplier.create')}}" type="button" class="btn btn-success text-white mb-4"><i class="bi bi-plus-circle"></i> Supplier</a>
 
-<table class="table table-bordered">
+<table id="tabledata" class="table table-bordered">
    <thead>
        <tr>
            <th scope="col" >Nama</th>

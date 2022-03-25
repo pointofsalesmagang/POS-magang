@@ -50,7 +50,7 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">
+      <a class="nav-link" href="{{route('pembelian.index')}}">
         <i class="fa-solid fa-circle-arrow-down me-2"></i>
         <span class="menu-title" style="font-size: 17px">Daftar Pembelian</span>
       </a>

@@ -3,7 +3,7 @@
 
 <a href="{{route ('user.create')}}" type="button" class="btn btn-success text-white mb-4"><i class="bi bi-plus-circle"></i> User</a>
 
-<table class="table table-bordered">
+<table id="tabledata" class="table table-bordered">
    <thead>
        <tr>
            <th scope="col" >No</th>

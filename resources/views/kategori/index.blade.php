@@ -4,7 +4,7 @@
 
 <a href="{{route ('kategori.create')}}" type="button" class="btn btn-success text-white mb-4"><i class="bi bi-plus-circle"></i> kategori</a>  
 
-<table class="table table-bordered">
+<table id="tabledata" class="table table-bordered">
     <thead>
         <tr>
             <th scope="col">Nama Kategori</th>
