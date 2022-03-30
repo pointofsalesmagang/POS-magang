@@ -19,7 +19,7 @@
       <li class="nav-item nav-profile dropdown">
         <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="profileDropdown">
           <img src="https://i.pinimg.com/736x/b7/5b/29/b75b29441bbd967deda4365441497221.jpg" alt="profile"/>
-          {{-- <span class="nav-profile-name">{{ Auth::user()->name }}</span> --}}
+          <span class="nav-profile-name">{{ Auth::user()->name }}</span>
         </a>
         <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
           <a class="dropdown-item" href="{{ route('logout') }}"
