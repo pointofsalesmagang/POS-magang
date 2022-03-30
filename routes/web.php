@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\PenjualanController;
 // use App\Http\Controllers\SupplierController;
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +31,4 @@ Route::resource('supplier',App\Http\Controllers\SupplierController::class);
 Route::resource('user',App\Http\Controllers\UserController::class);
 Route::resource('pengeluaran',App\Http\Controllers\PengeluaranControllers::class);
 Route::resource('pembelian',App\Http\Controllers\PembelianControllers::class);
+Route::resource('penjualan',App\Http\Controllers\PenjualanController::class);

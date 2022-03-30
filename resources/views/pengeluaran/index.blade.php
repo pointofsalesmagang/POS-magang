@@ -2,11 +2,12 @@
 @section('content')
 
 
-<a href="{{route ('pengeluaran.create')}}" type="button" class="btn btn-success text-white mb-4"><i class="bi bi-plus-circle"></i> Pengeluaran</a>
+<a href="{{route ('pengeluaran.create')}}" type="button" class="btn btn-success text-white mb-4"><i class="bi bi-plus-circle"></i> Daftar Pengeluaran</a>
 
 <table id="tabledata" class="table table-bordered text-center">
     <thead>
       <tr>
+        <th scope="col">No</th>
         <th scope="col">Tanggal</th>
         <th scope="col">Deskripsi</th>
         <th scope="col">Nominal</th>
@@ -16,6 +17,7 @@
     <tbody>
         @foreach ($pengeluaran as $item)
         <tr>
+            <td>{{ $loop->iteration }}</td>
             <td>{{$item->tanggal}}</td>
             <td>{{$item->deskripsi}}</td>
             <td>{{$item->nominal}}</td>

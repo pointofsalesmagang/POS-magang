@@ -6,6 +6,7 @@
 <table id="tabledata" class="table table-bordered">
    <thead>
        <tr>
+           <th scope="col" >No</th>
            <th scope="col" >Nama</th>
            <th scope="col" >Telepon</th>
            <th scope="col" >Alamat</th>
@@ -15,6 +16,7 @@
    <tbody>
     @foreach ($supplier as $item)
     <tr>
+        <td>{{ $loop->iteration }}</td>
         <td>{{$item->nama}}</td>
         <td>{{$item->telepon}}</td>
         <td>{{$item->alamat}}</td>  

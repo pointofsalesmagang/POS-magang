@@ -3,19 +3,21 @@
 
 <a href="{{route ('member.create')}}" type="button" class="btn btn-success text-white mb-4"><i class="bi bi-plus-circle"></i> Member</a>
 
-<table id="tabledata" class="table table-bordered">
+<table id="tabledata" class="table table-bordered text-center">
     <thead>
       <tr>
-        <th scope="col" class="text-center">Kode</th>
-        <th scope="col" class="text-center">Nama Member</th>
-        <th scope="col" class="text-center">Alamat</th>
-        <th scope="col" class="text-center">No. Telpon</th>
-        <th scope="col" class="text-center">Action</th>
+        <th scope="col">No</th>
+        <th scope="col">Kode</th>
+        <th scope="col">Nama Member</th>
+        <th scope="col">Alamat</th>
+        <th scope="col">No. Telpon</th>
+        <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody>
         @foreach ($member as $memb)
         <tr>
+            <td>{{ $loop->iteration }}</td>
             <td>{{$memb->kode}}</td>
             <td>{{$memb->nama_member}}</td>
             <td>{{$memb->alamat}}</td>

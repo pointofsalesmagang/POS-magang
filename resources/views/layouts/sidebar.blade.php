@@ -56,7 +56,7 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">
+      <a class="nav-link" href="{{route('penjualan.index')}}">
         <i class="fa-solid fa-circle-arrow-up me-2"></i>
         <span class="menu-title" style="font-size: 17px">Daftar Penjualan</span>
       </a>

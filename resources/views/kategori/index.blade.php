@@ -7,6 +7,7 @@
 <table id="tabledata" class="table table-bordered">
     <thead>
         <tr>
+            <th scope="col" >No</th>
             <th scope="col">Nama Kategori</th>
             <th scope="col">Deskripsi</th>
             <th scope="col">Action</th>
@@ -15,6 +16,7 @@
     <tbody>
         @foreach ($kategori as $item)
         <tr>
+            <td>{{ $loop->iteration }}</td>
             <td>{{$item->nama_kategori}}</td>
             <td>{{$item->deskripsi}}</td>  
             <td>

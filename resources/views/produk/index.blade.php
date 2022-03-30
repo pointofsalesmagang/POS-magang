@@ -4,23 +4,25 @@
 
 <a href="{{route ('produk.create')}}" type="button" class="btn btn-success text-white mb-4"><i class="bi bi-plus-circle"></i> Produk</a>
 
-<table id="tabledata" class="table table-bordered">
+<table id="tabledata" class="table table-bordered text-center">
     <thead>
       <tr>
-        <th scope="col" class="text-center">Kode</th>
-        <th scope="col" class="text-center">Nama Produk</th>
-        <th scope="col" class="text-center">Kategori Produk</th>
-        <th scope="col" class="text-center">Merk</th>
-        <th scope="col" class="text-center">Harga Beli</th>
-        <th scope="col" class="text-center">Harga Jual</th>
-        <th scope="col" class="text-center">Diskon</th>
-        <th scope="col" class="text-center">Stok</th>
-        <th scope="col" class="text-center">Action</th>
+        <th scope="col" >No</th>
+        <th scope="col" >Kode</th>
+        <th scope="col" >Nama Produk</th>
+        <th scope="col" >Kategori Produk</th>
+        <th scope="col" >Merk</th>
+        <th scope="col" >Harga Beli</th>
+        <th scope="col" >Harga Jual</th>
+        <th scope="col" >Diskon</th>
+        <th scope="col" >Stok</th>
+        <th scope="col" >Action</th>
       </tr>
     </thead>
     <tbody>
         @foreach ($produk as $item)
         <tr>
+            <td>{{ $loop->iteration }}</td>
             <td>{{$item->kode}}</td>
             <td>{{$item->nama_produk}}</td>
             <td>{{$item->kategori_produk}}</td>
