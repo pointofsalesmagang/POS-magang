@@ -16,6 +16,7 @@
   
   <link rel="shortcut icon" href="{{ asset('template/images/favicon.png')}}" />
   <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap4.min.css">
+  @stack('css')
 </head>
 <body>
   <div class="container-scroller d-flex">
@@ -93,6 +94,8 @@
         $('#tabledata').DataTable();
     } );
   </script>
+    @stack('scripts')
+
 </body>
 
 </html>

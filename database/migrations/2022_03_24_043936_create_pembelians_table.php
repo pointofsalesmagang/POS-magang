@@ -14,13 +14,13 @@ class CreatePembeliansTable extends Migration
     public function up()
     {
         Schema::create('pembelians', function (Blueprint $table) {
-            $table->id();
-            $table->date('tanggal');
-            $table->string('supplier');
+            // $table->id();
+            $table->increments('id_pembelian');
+            $table->integer('id_supplier');
             $table->text('total_item');
             $table->text('total_harga');
-            $table->text('diskon');
-            $table->text('total_bayar');
+            $table->text('diskon')->default(0);
+            $table->text('total_bayar')->default(0)->nullable();
             $table->timestamps();
         });
     }

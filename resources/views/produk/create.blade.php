@@ -19,21 +19,18 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Kode:</strong>
-                <input type="number" name="kode" class="form-control">
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
                 <strong>Nama Produk:</strong>
                 <input type="text" name="nama_produk" class="form-control">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Kategori Produk:</strong>
-                <input type="text" name="kategori_produk" class="form-control">
-            </div>
+           <label for="id_kategori">Kategori</label>
+                    <select class="form-control" name="id_kategori" id="id_kategori">
+                        <option value="">-- Pilih --</option>
+                        @foreach ($kategori as $key => $item)
+                        <option value="{{ $key }}"> {{ $item }}</option>
+                        @endforeach
+                    </select>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
@@ -44,13 +41,13 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Harga Beli:</strong>
-                <input type="text" id="dengan-rupiah" name="harga_beli" class="form-control">
+                <input type="number" id="dengan-rupiah" name="harga_beli" class="form-control">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Harga Jual:</strong>
-                <input type="text" id="dengan-rupiah" name="harga_jual" class="form-control">
+                <input type="number" id="dengan-rupiah" name="harga_jual" class="form-control">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">

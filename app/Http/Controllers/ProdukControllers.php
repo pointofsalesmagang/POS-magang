@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 use App\Models\Produk;
 
@@ -14,7 +15,9 @@ class ProdukControllers extends Controller
      */
     public function index()
     {
-        $produk = produk::all();
+        // $kategori = Kategori::all()->pluck('nama_kategori', 'id');
+        $produk = Produk::with('kategori')->get();
+        // dd($produk);
         return view ('produk.index',compact('produk'));
     }
 
@@ -25,7 +28,8 @@ class ProdukControllers extends Controller
      */
     public function create()
     {
-        return view('produk.create');
+        $kategori = Kategori::all()->pluck('nama_kategori', 'id');
+        return view('produk.create',compact('kategori'));
     }
 
     /**
@@ -37,16 +41,10 @@ class ProdukControllers extends Controller
     public function store(Request $request)
     {
         // dd($request);
-        $request->validate([
-           'kode' => 'required',
-           'nama_produk' => 'required',
-           'kategori_produk' => 'required',
-           'merk' => 'required',
-           'harga_beli' => 'required',
-           'harga_jual' => 'required',
-           'diskon' => 'required',
-           'stok' => 'required',
-        ]);
+        $produk = Produk::latest()->first() ?? new Produk();
+        // dd($produk);
+        $request['kode'] = 'P' . tambah_nol_didepan((int)$produk->id + 1, 6);
+        // dd($request);
         Produk::create($request->all());
 
         return redirect()->route('produk.index')->with('succes','Data berhasil di Input');

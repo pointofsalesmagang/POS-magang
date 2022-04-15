@@ -25,7 +25,7 @@
             <td>{{ $loop->iteration }}</td>
             <td>{{$item->kode}}</td>
             <td>{{$item->nama_produk}}</td>
-            <td>{{$item->kategori_produk}}</td>
+            <td>{{$item->kategori->nama_kategori}}</td>
             <td>{{$item->merk}}</td>
             <td>{{$item->harga_beli}}</td>
             <td>{{$item->harga_jual}}</td>
@@ -33,11 +33,11 @@
             <td>{{$item->stok}}</td>  
             <td>
              
-              <form action="{{route('produk.destroy',$item->id)}}" method="POST" class="text-center">
+              <form action="{{route('produk.destroy',$item->id_produk)}}" method="POST" class="text-center">
                 @csrf
                 @method('DELETE') 
-                <a class="btn btn-info btn-fw text-white" href="{{route('produk.show',$item->id)}}"><i class="bi bi-eye-fill"></i></a>
-                <a class="btn btn-warning btn-fw text-white" href="{{route('produk.edit',$item->id)}}"><i class="bi bi-pencil-square"></i></a>
+                <a class="btn btn-info btn-fw text-white" href="{{route('produk.show',$item->id_produk)}}"><i class="bi bi-eye-fill"></i></a>
+                <a class="btn btn-warning btn-fw text-white" href="{{route('produk.edit',$item->id_produk)}}"><i class="bi bi-pencil-square"></i></a>
                 <button type="submit" class="btn btn-danger btn-fw text-white" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="bi bi-trash3-fill"></i></button>
                 </form>
             </td>  

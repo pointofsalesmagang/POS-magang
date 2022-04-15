@@ -14,16 +14,19 @@ class CreatePenjualanTable extends Migration
     public function up()
     {
         Schema::create('penjualan', function (Blueprint $table) {
-            $table->id();
+            // $table->id();
+            $table->increments('id_penjualan');
+            $table->integer('id_member');
             $table->date('tanggal');
-            $table->text('kode_member');
+            // $table->text('kode_member');
             $table->text('total_item');
             $table->text('total_harga');
-            $table->text('diskon');
-            $table->text('total_bayar');
+            $table->text('diskon')->default(0);
+            $table->text('bayar')->default(0);
+            $table->text('diterima')->default(0);
             $table->text('kasir');
             $table->timestamps();
-        });
+        }); 
     }
 
     /**
