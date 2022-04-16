@@ -28,6 +28,7 @@
 </div>
 
 @includeIf('pembelian.supplier')
+@includeIf('pembelian.detail')
 @endsection
 
 @push('scripts')
@@ -62,7 +63,7 @@
             dom: 'Brt',
             columns: [
                 {data: 'DT_RowIndex', searchable: false, sortable: false},
-                {data: 'kode'},
+                {data: 'kode_produk'},
                 {data: 'nama_produk'},
                 {data: 'harga_beli'},
                 {data: 'jumlah'},

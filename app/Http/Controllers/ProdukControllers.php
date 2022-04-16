@@ -40,10 +40,8 @@ class ProdukControllers extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
         $produk = Produk::latest()->first() ?? new Produk();
-        // dd($produk);
-        $request['kode'] = 'P' . tambah_nol_didepan((int)$produk->id + 1, 6);
+        $request['kode_produk'] = 'P' . tambah_nol_didepan((int)$produk->id_produk + 1, 6);
         // dd($request);
         Produk::create($request->all());
 
@@ -87,7 +85,7 @@ class ProdukControllers extends Controller
         // dd($produkid);
     
         $request->validate([
-            'kode' => 'required',
+            'kode_produk' => 'required',
             'nama_produk' => 'required',
             'kategori_produk' => 'required',
             'merk' => 'required',

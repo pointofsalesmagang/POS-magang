@@ -17,10 +17,10 @@ class CreatePembeliansTable extends Migration
             // $table->id();
             $table->increments('id_pembelian');
             $table->integer('id_supplier');
-            $table->text('total_item');
-            $table->text('total_harga');
-            $table->text('diskon')->default(0);
-            $table->text('total_bayar')->default(0)->nullable();
+            $table->integer('total_item');
+            $table->integer('total_harga');
+            $table->tinyInteger('diskon')->default(0);
+            $table->integer('bayar')->default(0);
             $table->timestamps();
         });
     }

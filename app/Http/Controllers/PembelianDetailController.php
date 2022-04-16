@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Produk;
 use App\Models\Pembelian;
 use App\Models\PembelianDetail;
+use App\Models\Produk;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
 
@@ -27,9 +27,8 @@ class PembelianDetailController extends Controller
     public function data($id)
     {
         $detail = PembelianDetail::with('produk')
-        ->where('id_pembelian', $id)
+            ->where('id_pembelian', $id)
             ->get();
-            
             // dd($detail);
         $data = array();
         $total = 0;
@@ -37,7 +36,7 @@ class PembelianDetailController extends Controller
 
         foreach ($detail as $item) {
             $row = array();
-            $row['kode'] = '<span class="label label-success">' . $item->produk['kode'] . '</span';
+            $row['kode_produk'] = '<span class="label label-success">' . $item->produk['kode_produk'] . '</span';
             $row['nama_produk'] = $item->produk['nama_produk'];
             $row['harga_beli']  = 'Rp. ' . format_uang($item->harga_beli);
             $row['jumlah']      = '<input type="number" class="form-control input-sm quantity" data-id="' . $item->id_pembelian_detail . '" value="' . $item->jumlah . '">';
@@ -51,7 +50,7 @@ class PembelianDetailController extends Controller
             $total_item += $item->jumlah;
         }
         $data[] = [
-            'kode' => '
+            'kode_produk' => '
                 <div class="total hide">' . $total . '</div>
                 <div class="total_item hide">' . $total_item . '</div>',
             'nama_produk' => '',
@@ -61,18 +60,17 @@ class PembelianDetailController extends Controller
             'aksi'        => '',
         ];
 
-        return DataTables()
+        return datatables()
             ->of($data)
             ->addIndexColumn()
-            ->rawColumns(['aksi', 'kode', 'jumlah'])
+            ->rawColumns(['aksi', 'kode_produk', 'jumlah'])
             ->make(true);
     }
 
     public function store(Request $request)
-    {
-        // dd($request);
+    {   
         $produk = Produk::where('id_produk', $request->id_produk)->first();
-        dd($produk);
+        // dd($produk);
         if (!$produk) {
             return response()->json('Data gagal disimpan', 400);
         }
@@ -83,7 +81,6 @@ class PembelianDetailController extends Controller
         $detail->harga_beli = $produk->harga_beli;
         $detail->jumlah = 1;
         $detail->subtotal = $produk->harga_beli;
-        // dd($detail);
         $detail->save();
 
         return response()->json('Data berhasil disimpan', 200);

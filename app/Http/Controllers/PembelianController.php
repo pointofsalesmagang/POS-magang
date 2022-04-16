@@ -14,6 +14,7 @@ class PembelianController extends Controller
     public function index()
     {
         $supplier = Supplier::orderBy('nama')->get();
+        // dd($supplier);
 
         return view('pembelian.index', compact('supplier'));
     }
@@ -22,7 +23,7 @@ class PembelianController extends Controller
     {
         $pembelian = Pembelian::orderBy('id_pembelian', 'desc')->get();
         // $pembelian = Pembelian::all();
-        // dd($pembelian);
+        dd($pembelian);
 
         return datatables()
             ->of($pembelian)
@@ -34,7 +35,7 @@ class PembelianController extends Controller
                 return 'Rp. ' . format_uang($pembelian->total_harga);
             })
             ->addColumn('bayar', function ($pembelian) {
-                return 'Rp. ' . format_uang($pembelian->total_bayar);
+                return 'Rp. ' . format_uang($pembelian->bayar);
             })
             ->addColumn('tanggal', function ($pembelian) {
                 return tanggal_indonesia($pembelian->created_at, false);
@@ -64,7 +65,7 @@ class PembelianController extends Controller
         $pembelian->total_item  = 0;
         $pembelian->total_harga = 0;
         $pembelian->diskon      = 0;
-        $pembelian->total_bayar       = 0;
+        $pembelian->bayar       = 0;
         $pembelian->save();
 
         session(['id_pembelian' => $pembelian->id_pembelian]);
@@ -75,11 +76,12 @@ class PembelianController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request);
         $pembelian = Pembelian::findOrFail($request->id_pembelian);
         $pembelian->total_item = $request->total_item;
         $pembelian->total_harga = $request->total;
         $pembelian->diskon = $request->diskon;
-        $pembelian->total_bayar = $request->total_bayar;
+        $pembelian->bayar = $request->bayar;
         $pembelian->update();
 
         $detail = PembelianDetail::where('id_pembelian', $pembelian->id_pembelian)->get();

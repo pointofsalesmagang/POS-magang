@@ -15,9 +15,9 @@ class Produk extends Model
     protected $table = 'produks';
     protected $primaryKey = 'id_produk';
     
-    protected $fillable = [
-        'kode','nama_produk','id_kategori','merk','harga_beli','harga_jual','diskon','stok'
-    ];
+    // protected $fillable = [
+    //     'kode_produk','nama_produk','id_kategori','merk','harga_beli','harga_jual','diskon','stok'
+    // ];
     protected $guarded = [];
 
     public function kategori()

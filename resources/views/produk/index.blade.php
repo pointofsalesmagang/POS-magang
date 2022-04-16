@@ -23,7 +23,7 @@
         @foreach ($produk as $item)
         <tr>
             <td>{{ $loop->iteration }}</td>
-            <td>{{$item->kode}}</td>
+            <td>{{$item->kode_produk}}</td>
             <td>{{$item->nama_produk}}</td>
             <td>{{$item->kategori->nama_kategori}}</td>
             <td>{{$item->merk}}</td>

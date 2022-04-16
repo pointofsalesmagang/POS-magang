@@ -56,7 +56,7 @@
                             <div class="input-group">
                                 <input type="hidden" name="id_pembelian" id="id_pembelian" value="{{ $id_pembelian }}">
                                 <input type="hidden" name="id_produk" id="id_produk">
-                                <input type="text" class="form-control" name="kode" id="kode_produk">
+                                <input type="text" class="form-control" name="kode_produk" id="kode_produk">
                                 <span class="input-group-btn">
                                     <button onclick="tampilProduk()" class="btn btn-info btn-flat" type="button"><i class="fa fa-arrow-right"></i></button>
                                 </span>
@@ -88,7 +88,7 @@
                             <input type="hidden" name="id_pembelian" value="{{ $id_pembelian }}">
                             <input type="hidden" name="total" id="total">
                             <input type="hidden" name="total_item" id="total_item">
-                            <input type="hidden" name="total_bayar" id="bayar">
+                            <input type="hidden" name="bayar" id="bayar">
 
                             <div class="form-group row">
                                 <label for="totalrp" class="col-lg-2 control-label">Total</label>
@@ -140,7 +140,7 @@
             },
             columns: [
                 {data: 'DT_RowIndex', searchable: false, sortable: false},
-                {data: 'kode'},
+                {data: 'kode_produk'},
                 {data: 'nama_produk'},
                 {data: 'harga_beli'},
                 {data: 'jumlah'},
@@ -209,16 +209,18 @@
     }
 
     function pilihProduk(id, kode) {
-        $('#id_produk').val(id_produk);
+        $('#id_produk').val(id);
         $('#kode_produk').val(kode);
         hideProduk();
         tambahProduk();
     }
 
     function tambahProduk() {
+
+        console.log($('.form-produk').serialize());
         $.post('{{ route('pembelian_detail.store') }}', $('.form-produk').serialize())
             .done(response => {
-                $('#kode').focus();
+                $('#kode_produk').focus();
                 table.ajax.reload(() => loadForm($('#diskon').val()));
             })
             .fail(errors => {
@@ -251,7 +253,7 @@
             .done(response => {
                 $('#totalrp').val('Rp. '+ response.totalrp);
                 $('#bayarrp').val('Rp. '+ response.bayarrp);
-                $('#bayar').val(response.total_bayar);
+                $('#bayar').val(response.bayar);
                 $('.tampil-bayar').text('Rp. '+ response.bayarrp);
                 $('.tampil-terbilang').text(response.terbilang);
             })

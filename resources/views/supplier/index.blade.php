@@ -21,10 +21,10 @@
         <td>{{$item->telepon}}</td>
         <td>{{$item->alamat}}</td>  
         <td>
-            <form action="{{route('supplier.destroy',$item->id)}}" method="POST">
+            <form action="{{route('supplier.destroy',$item->id_supplier)}}" method="POST">
                 @csrf
                 @method('DELETE')
-                <a class="btn btn-warning btn-fw text-white" href="{{route('supplier.edit',$item->id)}}"><i class="bi bi-pencil-square"></i></a>
+                <a class="btn btn-warning btn-fw text-white" href="{{route('supplier.edit',$item->id_supplier)}}"><i class="bi bi-pencil-square"></i></a>
                 <button type="submit" class="btn btn-danger btn-fw text-white" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="bi bi-trash3-fill"></i></button>
             </form>
         </td>  
