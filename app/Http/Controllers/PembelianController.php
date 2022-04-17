@@ -14,6 +14,8 @@ class PembelianController extends Controller
     public function index()
     {
         $supplier = Supplier::orderBy('nama')->get();
+        // $pembelian = Pembelian::with('supplier')->orderBy('id_pembelian', 'desc')->get();
+        // dd($pembelian);
         // dd($supplier);
 
         return view('pembelian.index', compact('supplier'));
@@ -21,10 +23,11 @@ class PembelianController extends Controller
 
     public function data()
     {
-        $pembelian = Pembelian::orderBy('id_pembelian', 'desc')->get();
+        // $pembelian = Pembelian::orderBy('id_pembelian', 'desc')->get();
+        $pembelian = Pembelian::with('supplier')->orderBy('id_pembelian', 'desc')->get();
         // $pembelian = Pembelian::all();
-        dd($pembelian);
-
+        // dd($pembelian);
+        // console.log($pembelian);
         return datatables()
             ->of($pembelian)
             ->addIndexColumn()
@@ -85,8 +88,9 @@ class PembelianController extends Controller
         $pembelian->update();
 
         $detail = PembelianDetail::where('id_pembelian', $pembelian->id_pembelian)->get();
+        // dd($detail);
         foreach ($detail as $item) {
-            $produk = Produk::find($item->id_pembelian);
+            $produk = Produk::find($item->id_produk);
             $produk->stok += $item->jumlah;
             $produk->update();
         }

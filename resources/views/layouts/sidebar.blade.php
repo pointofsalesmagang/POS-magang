@@ -46,25 +46,19 @@
     <li class="nav-item">
       <a class="nav-link" href="{{route('pengeluaran.index')}}">
         <i class="fa-solid fa-money-bill-1 me-2"></i>
-        <span class="menu-title" style="font-size: 17px">Daftar Pengeluaran</span>
+        <span class="menu-title" style="font-size: 17px">Pengeluaran</span>
       </a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="{{route('pembelian.index')}}">
         <i class="fa-solid fa-circle-arrow-down me-2"></i>
-        <span class="menu-title" style="font-size: 17px">Daftar Pembelian</span>
+        <span class="menu-title" style="font-size: 17px">Pembelian</span>
       </a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="{{route('penjualan.index')}}">
         <i class="fa-solid fa-circle-arrow-up me-2"></i>
-        <span class="menu-title" style="font-size: 17px">Daftar Penjualan</span>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">
-        <i class="fa-solid fa-arrow-down-wide-short me-2"></i>
-        <span class="menu-title" style="font-size: 17px">Transaksi Pembelian</span>
+        <span class="menu-title" style="font-size: 17px">Penjualan</span>
       </a>
     </li>
     <li class="nav-item">

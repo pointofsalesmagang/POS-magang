@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Kategori;
 use App\Models\PembelianDetail;
+
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Produk extends Model
@@ -14,7 +15,7 @@ class Produk extends Model
 
     protected $table = 'produks';
     protected $primaryKey = 'id_produk';
-    
+
     // protected $fillable = [
     //     'kode_produk','nama_produk','id_kategori','merk','harga_beli','harga_jual','diskon','stok'
     // ];

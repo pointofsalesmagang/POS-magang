@@ -8,21 +8,21 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <title>Blue Mart</title>
- 
+
   <link rel="stylesheet" href="{{ asset('template/vendors/mdi/css/materialdesignicons.min.css')}}">
-  <link rel="stylesheet" href="{{ asset('template/vendors/css/vendor.bundle.base.css')}}">
+  {{-- <link rel="stylesheet" href="{{ asset('template/vendors/css/vendor.bundle.base.css')}}"> --}}
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  
+
   <link rel="stylesheet" href="{{ asset('template/css/style.css')}}">
-  
+
   <link rel="shortcut icon" href="{{ asset('template/images/favicon.png')}}" />
   <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap4.min.css">
   @stack('css')
 </head>
 <body>
   <div class="container-scroller d-flex">
-   
+
 
     <!-- partial:./partials/_sidebar.html -->
     <nav class="sidebar sidebar-offcanvas" id="sidebar">
@@ -44,11 +44,11 @@
               @yield('content')
             </div>
           </div>
-            
+
           </div>
 
           <!-- row end -->
-          
+
           <!-- row end -->
         </div>
         <!-- content-wrapper ends -->
@@ -76,7 +76,7 @@
   <!-- endinject -->
   <!-- Plugin js for this page-->
   <script src="{{ asset('template/vendors/chart.js/Chart.min.js')}}"></script>
-  <script src="{{ asset('template/js/jquery.cookie.js" type="text/javascript')}}"></script>
+  <script src="{{ asset('template/js/jquery.cookie.js')}}" type="text/javascript"></script>
   <!-- End plugin js for this page-->
   <!-- inject:js -->
   <script src="{{ asset('template/js/off-canvas.js')}}"></script>
@@ -84,7 +84,7 @@
   <script src="{{ asset('template/js/template.js')}}"></script>
   <!-- endinject -->
   <!-- plugin js for this page -->
-    <script src="{{ asset('template/js/jquery.cookie.js" type="text/javascript')}}"></script>
+    <script src="{{ asset('template/js/jquery.cookie.js')}}" type="text/javascript"></script>
   <!-- End plugin js for this page -->
   <!-- Custom js for this page-->
   <script src="{{ asset('template/js/dashboard.js')}}"></script>

@@ -6,7 +6,7 @@
             <div class="box-header with-border">
                 <button onclick="addForm()" class="btn btn-success btn-xs btn-flat"><i class="fa fa-plus-circle"></i> Transaksi Baru</button>
                 @empty(! session('id_pembelian'))
-                <a href="{{ route('pembelian_detail.index') }}" class="btn btn-info btn-xs btn-flat"><i class="fa fa-pencil"></i> Transaksi Aktif</a>
+                <a href="{{ route('pembelian_detail.index') }}" class="btn btn-info btn-xs btn-flat"><i class="fa fa-pencil"></i> Transaksi Tersimpan</a>
                 @endempty
             </div>
             <div class="box-body table-responsive">
@@ -36,13 +36,20 @@
     let table, table1;
 
     $(function () {
+
+        console.log('====================================');
+        console.log('woe');
+        console.log("{{ route('pembelian.data') }}");
+        console.log('====================================');
+
         table = $('.table-pembelian').DataTable({
             responsive: true,
             processing: true,
             serverSide: true,
             autoWidth: false,
             ajax: {
-                url: '{{ route('pembelian.data') }}',
+                url: "{{ route('pembelian.data') }}",
+                method: "GET"
             },
             columns: [
                 {data: 'DT_RowIndex', searchable: false, sortable: false},
