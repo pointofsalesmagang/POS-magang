@@ -60,3 +60,7 @@ Route::get('/transaksi/{id}/data', [App\Http\Controllers\PenjualanDetailControll
 Route::get('/transaksi/loadform/{diskon}/{total}/{diterima}', [App\Http\Controllers\PenjualanDetailController::class, 'loadForm'])->name('transaksi.load_form');
 Route::resource('/transaksi', App\Http\Controllers\PenjualanDetailController::class)
     ->except('create', 'show', 'edit');
+
+Route::get('/laporan', [App\Http\Controllers\LaporanController::class, 'index'])->name('laporan.index');
+Route::get('/laporan/data/{awal}/{akhir}', [App\Http\Controllers\LaporanController::class, 'data'])->name('laporan.data');
+Route::get('/laporan/pdf/{awal}/{akhir}', [App\Http\Controllers\LaporanController::class, 'exportPDF'])->name('laporan.export_pdf');

@@ -72,7 +72,7 @@
       <span></span>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">
+      <a class="nav-link" href="{{ route('laporan.index')}}">
         <i class="fa-solid fa-file-pdf me-2"></i>
         <span class="menu-title" style="font-size: 17px">Laporan</span>
       </a>
