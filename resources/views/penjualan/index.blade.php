@@ -1,45 +1,92 @@
 @extends('layouts.main')
 @section('content')
+<div class="row">
+    <div class="col-lg-12">
+        <div class="box">
+            <div class="box-body table-responsive">
+                <table class="table table-stiped table-bordered table-penjualan">
+                    <thead>
+                        <th width="5%">No</th>
+                        <th>Tanggal</th>
+                        <th>Kode Member</th>
+                        <th>Total Item</th>
+                        <th>Total Harga</th>
+                        <th>Diskon</th>
+                        <th>Total Bayar</th>
+                        <th>Kasir</th>
+                        <th width="15%"><i class="fa fa-cog"></i></th>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 
-<a href="{{route ('penjualan.create')}}" type="button" class="btn btn-success text-white mb-4"><i class="bi bi-plus-circle"></i> Daftar Penjualan</a>
-
-<table id="tabledata" class="table table-bordered text-center">
-    <thead>
-      <tr>
-        <th scope="col">No</th>
-        <th scope="col">Tanggal</th>
-        <th scope="col">kode Member</th>
-        <th scope="col">Total Item</th>
-        <th scope="col">Total Harga</th>
-        <th scope="col">Diskon</th>
-        <th scope="col">Total Bayar</th>
-        <th scope="col">Kasir</th>
-        <th scope="col">Action</th>
-      </tr>
-    </thead>
-    <tbody>
-        @foreach ($penjualan as $jual)
-        <tr>
-            <td>{{ $loop->iteration }}</td>
-            <td>{{$jual->tanggal}}</td>
-            <td>{{$jual->kode_member}}</td>
-            <td>{{$jual->total_item}}</td>
-            <td>{{$jual->total_harga}}</td>
-            <td>{{$jual->diskon}}</td>
-            <td>{{$jual->total_bayar}}</td>
-            <td>{{$jual->kasir}}</td>
-            <td>
-             
-              <form action="{{route('penjualan.destroy',$jual->id)}}" method="POST" class="text-center">
-                @csrf
-                @method('DELETE') 
-                <a class="btn btn-warning btn-fw text-white" href="{{route('penjualan.edit',$jual->id)}}"><i class="bi bi-pencil-square"></i></a>
-                <button type="submit" class="btn btn-danger btn-fw text-white" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="bi bi-trash3-fill"></i></button>
-                </form>
-            </td>  
-     </tr>
-     @endforeach
-    </tbody>
-  </table>
-   
+@includeIf('penjualan.detail')
 @endsection
+
+@push('scripts')
+<script>
+    let table, table1;
+
+    $(function () {
+        table = $('.table-penjualan').DataTable({
+            responsive: true,
+            processing: true,
+            serverSide: true,
+            autoWidth: false,
+            ajax: {
+                url: '{{ route('penjualan.data') }}',
+            },
+            columns: [
+                {data: 'DT_RowIndex', searchable: false, sortable: false},
+                {data: 'tanggal'},
+                {data: 'kode_member'},
+                {data: 'total_item'},
+                {data: 'total_harga'},
+                {data: 'diskon'},
+                {data: 'bayar'},
+                {data: 'kasir'},
+                {data: 'aksi', searchable: false, sortable: false},
+            ]
+        });
+
+        table1 = $('.table-detail').DataTable({
+            processing: true,
+            bSort: false,
+            dom: 'Brt',
+            columns: [
+                {data: 'DT_RowIndex', searchable: false, sortable: false},
+                {data: 'kode_produk'},
+                {data: 'nama_produk'},
+                {data: 'harga_jual'},
+                {data: 'jumlah'},
+                {data: 'subtotal'},
+            ]
+        })
+    });
+
+    function showDetail(url) {
+        $('#modal-detail').modal('show');
+
+        table1.ajax.url(url);
+        table1.ajax.reload();
+    }
+
+    function deleteData(url) {
+        if (confirm('Yakin ingin menghapus data terpilih?')) {
+            $.post(url, {
+                    '_token': $('[name=csrf-token]').attr('content'),
+                    '_method': 'delete'
+                })
+                .done((response) => {
+                    table.ajax.reload();
+                })
+                .fail((errors) => {
+                    alert('Tidak dapat menghapus data');
+                    return;
+                });
+        }
+    }
+</script>
+@endpush

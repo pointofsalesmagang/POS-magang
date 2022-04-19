@@ -36,11 +36,12 @@ class MemberController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         $request->validate([
-            'kode' => 'required',
-            'nama_member' => 'required',
+            'kode_member' => 'required',
+            'nama' => 'required',
             'alamat' => 'required',
-            'notelp' => 'required',
+            'telepon' => 'required',
          ]);
          Member::create($request->all());
  
@@ -79,13 +80,13 @@ class MemberController extends Controller
      */
     public function update(Request $request, Member $member)
     {
-        $memberid = $member->id ; 
+        $memberid = $member->id_member ; 
     
         $request->validate([
-            'kode' => 'required',
-            'nama_member' => 'required',
+            'kode_member' => 'required',
+            'nama' => 'required',
             'alamat' => 'required',
-            'notelp' => 'required',
+            'telpon' => 'required',
         ]);
         member::find($memberid)->update($request->all());
 

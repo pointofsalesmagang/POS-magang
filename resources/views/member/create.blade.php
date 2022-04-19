@@ -20,13 +20,13 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Kode:</strong>
-                <input type="number" name="kode" class="form-control">
+                <input type="number" name="kode_member" class="form-control">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Nama Member:</strong>
-                <input type="text" name="nama_member" class="form-control">
+                <input type="text" name="nama" class="form-control">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -37,7 +37,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>No.Telpon:</strong>
-                <input type="number" name="notelp" class="form-control">
+                <input type="number" name="telepon" class="form-control">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">

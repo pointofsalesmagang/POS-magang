@@ -62,7 +62,7 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">
+      <a class="nav-link" href="{{route('transaksi.baru')}}">
         <i class="fa-solid fa-arrow-up-wide-short me-2"></i>
         <span class="menu-title" style="font-size: 17px">Transaksi Penjualan</span>
       </a>
