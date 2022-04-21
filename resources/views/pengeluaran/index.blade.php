@@ -18,18 +18,20 @@
         @foreach ($pengeluaran as $item)
         <tr>
             <td>{{ $loop->iteration }}</td>
-            <td>{{$item->tanggal}}</td>
+                {{-- return tanggal_indonesia($pengeluaran->created_at, false); --}}
+            <td>{{tanggal_indonesia($item->tanggal ,false)}}</td>
+
             <td>{{$item->deskripsi}}</td>
-            <td>{{$item->nominal}}</td>
+            <td>{{'Rp. '. format_uang($item->nominal)}}</td>
             <td>
-             
+
               <form action="{{route('pengeluaran.destroy',$item->id)}}" method="POST" class="text-center">
                 @csrf
-                @method('DELETE') 
+                @method('DELETE')
                 <a class="btn btn-warning btn-fw text-white" href="{{route('pengeluaran.edit',$item->id)}}"><i class="bi bi-pencil-square"></i></a>
                 <button type="submit" class="btn btn-danger btn-fw text-white" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="bi bi-trash3-fill"></i></button>
                 </form>
-            </td>  
+            </td>
      </tr>
      @endforeach
     </tbody>

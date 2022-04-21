@@ -18,23 +18,23 @@
         @foreach ($member as $memb)
         <tr>
             <td>{{ $loop->iteration }}</td>
-            <td>{{$memb->kode}}</td>
+            <td>{{$memb->kode_member}}</td>
             <td>{{$memb->nama}}</td>
             <td>{{$memb->alamat}}</td>
-            <td>{{$memb->telpon}}</td>  
+            <td>{{$memb->telpon}}</td>
             <td>
-             
+
               <form action="{{route('member.destroy',$memb->id_member)}}" method="POST" class="text-center">
                 @csrf
-                @method('DELETE') 
+                @method('DELETE')
                 <a class="btn btn-info btn-fw text-white" href="{{route('member.show',$memb->id_member)}}"><i class="bi bi-eye-fill"></i></a>
                 <a class="btn btn-warning btn-fw text-white" href="{{route('member.edit',$memb->id_member)}}"><i class="bi bi-pencil-square"></i></a>
                 <button type="submit" class="btn btn-danger btn-fw text-white" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i class="bi bi-trash3-fill"></i></button>
                 </form>
-            </td>  
+            </td>
      </tr>
      @endforeach
     </tbody>
   </table>
-    
+
 @endsection

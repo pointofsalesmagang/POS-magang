@@ -42,7 +42,7 @@ class PengeluaranControllers extends Controller
             'nominal' => 'required',
          ]);
          Pengeluaran::create($request->all());
- 
+
          return redirect()->route('pengeluaran.index')->with('succes','Data berhasil di Input');
     }
 
@@ -79,14 +79,14 @@ class PengeluaranControllers extends Controller
     {
         $pengeluaranid = $pengeluaran->id ;
         // dd($produkid);
-    
+
         $request->validate([
             'tanggal' => 'required',
             'deskripsi' => 'required',
             'nominal' => 'required',
          ]);
          Pengeluaran::find($pengeluaran)->first()->update($request->all());
- 
+
          return redirect()->route('pengeluaran.index')->with('succes','Data berhasil di Input');
     }
     /**

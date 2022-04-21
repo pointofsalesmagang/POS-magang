@@ -7,12 +7,12 @@
             <h2>Edit Supplier</h2>
         </div>
         <div class="float-right">
-            <a href="{{ route('supplier.index')}}" type="button" class="btn btn-secondary text-white mt-3">kembali</a>  
+            <a href="{{ route('supplier.index')}}" type="button" class="btn btn-secondary text-white mt-3">kembali</a>
         </div>
     </div>
 </div>
 
-<form action="{{ route('supplier.update',$supplier->id) }}" method="POST">
+<form action="{{ route('supplier.update',$supplier->id_supplier) }}" method="POST">
     @csrf
     @method('PUT')
 

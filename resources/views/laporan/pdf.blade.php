@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Laporan Pendapatan</title>
 
-    <link rel="stylesheet" href="{{ asset('/AdminLTE-2/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
 </head>
 <body>
     <h3 class="text-center">Laporan Pendapatan</h3>
@@ -16,7 +15,7 @@
         Tanggal {{ tanggal_indonesia($akhir, false) }}
     </h4>
 
-    <table class="table table-striped">
+    <table class="table table-striped" border="1">
         <thead>
             <tr>
                 <th width="5%">No</th>
